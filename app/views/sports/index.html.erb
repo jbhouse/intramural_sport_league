@@ -1,0 +1,4 @@
+<h2>Intramural Sports League</h2>
+<% @sports.each do |sport| %>
+<div class="sport-name"><%=link_to sport.name, sport_path(sport)%></div>
+<% end %>
