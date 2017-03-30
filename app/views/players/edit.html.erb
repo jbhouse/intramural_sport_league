@@ -2,4 +2,5 @@
 <%= form_for :players, url: {action: "update"} do |f| %>
   First Name: <%= f.text_field :first_name%>
   Last Name: <%= f.text_field :last_name%>
+  <%= f.submit "update"%>
 <% end %>

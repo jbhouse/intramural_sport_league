@@ -2,4 +2,5 @@
 <%= form_for :session, url: {action: "create"} do |f| %>
   Email: <%= f.text_field :email%>
   Password: <%= f.password_field :password %>
+    <%= f.submit "login"%>
 <% end %>

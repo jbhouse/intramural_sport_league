@@ -10,7 +10,7 @@ class PlayersController < ApplicationController
   def create
     @player = Player.new(create_player_params)
     if @player.save
-      redirect_to user_path(@player)
+      redirect_to player_path(@player)
     else
       @errors = @player.errors.full_messages
       render :new
@@ -38,9 +38,9 @@ class PlayersController < ApplicationController
     end
 
     def create_player_params
-      params.require(:player).permit(:first_name, :last_name, :email, :password)
+      params.require(:players).permit(:first_name, :last_name, :email, :password_confirmation)
     end
     def update_player_params
-      params.require(:player).permit(:first_name, :last_name)
+      params.require(:players).permit(:first_name, :last_name)
     end
 end
