@@ -1,6 +1,5 @@
 <h2>Roster for <%=@team.name%></h2>
 <% @roster.each do |roster_entry| %>
-<p>
-  <%= link_to roster_entry.player.first_name, player_path(roster_entry.player)%>
-</p>
+  <%= link_to "#{roster_entry.player.first_name} #{roster_entry.player.last_name}", player_path(roster_entry.player)%>
+  <br>
 <%end%>
