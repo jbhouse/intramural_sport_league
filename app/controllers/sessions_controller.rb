@@ -3,13 +3,13 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = Player.find_by(username: params[:username])
+    @user = Player.find_by(email: params[:email])
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       redirect_to root_url
     else
       @errors = ["Invalid Username or Password"]
-      render :edit
+      render :new
     end
   end
 

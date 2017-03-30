@@ -8,11 +8,12 @@ class PlayersController < ApplicationController
   end
 
   def create
-    @player = Player.new(create_player_params)
+    @player = Player.new(create_player_params, password_confirmation: params[:players][:password])
     if @player.save
-      redirect_to player_path(@player)
+      redirect_to 'sessions#create', email: params[:players][:email], password: params[:players][:password]
     else
       @errors = @player.errors.full_messages
+      puts @errors
       render :new
     end
   end
@@ -34,11 +35,11 @@ class PlayersController < ApplicationController
 
   private
     def find_player
-      @player.find(params[:player_id])
+      @player = Player.find(params[:id])
     end
 
     def create_player_params
-      params.require(:players).permit(:first_name, :last_name, :email, :password_confirmation)
+      params.require(:players).permit(:first_name, :last_name, :email, :password, :password_confirmation)
     end
     def update_player_params
       params.require(:players).permit(:first_name, :last_name)
