@@ -1,13 +1,19 @@
-<h1 class="profile-header"> Welcome to <%=@user.first_name%>'s profile </h1>
+<h1 class="profile-header"> Welcome to <%=@player.first_name%>'s profile </h1>
 <ul>
-  <!-- <% @games = Game.where(home_team.roster.contains(@user)
-  || away_team.roster.contains(@user)) %> -->
-  <!-- <% @games.each do |game| %>
+  <% user_games.each do |game| %>
   <li>
-    <%= game %>
+    <%= game.something? %>
+    <%= game.another_thing? %>
   </li>
   <% end %>
-</ul> -->
+</ul>
+
+<ul>
+  <%  %>
+  <li>
+    <%=  %>
+  </li>
+  <%  %>
+</ul>
 <!-- we want win/loss record
-all game they have played in
 all teams they have played for -->
