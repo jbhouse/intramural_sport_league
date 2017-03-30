@@ -7,6 +7,16 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <div id="navbar">
+    <%= link_to("HOME", sports_path) %>
+      <% if logged_in? %>
+        <%= link_to("Profile", player_path) %>
+        <%= link_to("Log Out", _path) %>
+      <% else %>
+        <%= link_to("Log In", new_session_path) %>
+        <%= link_to("Sign Up", new_player_path) %>
+      <% end %>
+  </div>
 
   <body>
     <%= yield %>
