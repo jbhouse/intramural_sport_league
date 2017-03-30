@@ -31,13 +31,7 @@ Sport.create(name: "Ultimate Frisbee", min_players: 8, max_players: 15)
     captain_id: rand(1..5),
     sport_id: 1)
 }
-2.times {Team.create(name: Faker::Pokemon.name, mascot_url: "google.com", captain_id: (rand(1..5)), sport_id: 2)}
-2.times {Team.create(name: Faker::Pokemon.name, mascot_url: "google.com", captain_id: (rand(1..5)), sport_id: 3)}
-2.times {Team.create(name: Faker::Pokemon.name, mascot_url: "google.com", captain_id: (rand(1..5)), sport_id: 4)}
-    mascot_url: "www.imgur.com",
-    captain_id: rand(1..5),
-    sport_id: 1)
-}
+2.times {Team.create(name: Faker::Pokemon.name, mascot_url: "www.imgur.com", captain_id: (rand(1..5)), sport_id: 1)}
 2.times {Team.create(name: Faker::Pokemon.name, mascot_url: "www.imgur.com", captain_id: (rand(1..5)), sport_id: 2)}
 2.times {Team.create(name: Faker::Pokemon.name, mascot_url: "www.imgur.com", captain_id: (rand(1..5)), sport_id: 3)}
 2.times {Team.create(name: Faker::Pokemon.name, mascot_url: "www.imgur.com", captain_id: (rand(1..5)), sport_id: 4)}
@@ -47,4 +41,12 @@ RosterEntry.create(sub?: false, player_id: 2, team_id: 1)
 RosterEntry.create(sub?: false, player_id: 3, team_id: 1)
 RosterEntry.create(sub?: true, player_id: 4, team_id: 1)
 
+5.times {Game.create(
+  location: Faker::StarWars.planet,
+  date: Faker::Date.forward(10),
+  time: "6:30 PM",
+  away_team_id: 1,
+  home_team_id: 2
+  )
+}
 
