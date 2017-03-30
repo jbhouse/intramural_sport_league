@@ -26,10 +26,10 @@ Sport.create(name: "Ultimate Frisbee", min_players: 8, max_players: 15)
 2.times {
   Team.create(
     name: Faker::Pokemon.name,
-    mascot_url: "www.google.com",
+    mascot_url: Faker::Fillmurray.image,
     captain_id: rand(1..5),
     sport_id: 1)
 }
-2.times {Team.create(name: Faker::Pokemon.name, mascot_url: "www.google.com", captain_id: (rand(1..5)), sport_id: 2)}
-2.times {Team.create(name: Faker::Pokemon.name, mascot_url: "www.google.com", captain_id: (rand(1..5)), sport_id: 3)}
-2.times {Team.create(name: Faker::Pokemon.name, mascot_url: "www.google.com", captain_id: (rand(1..5)), sport_id: 4)}
+2.times {Team.create(name: Faker::Pokemon.name, mascot_url: Faker::Fillmurray.image, captain_id: (rand(1..5)), sport_id: 2)}
+2.times {Team.create(name: Faker::Pokemon.name, mascot_url: Faker::Fillmurray.image, captain_id: (rand(1..5)), sport_id: 3)}
+2.times {Team.create(name: Faker::Pokemon.name, mascot_url: Faker::Fillmurray.image, captain_id: (rand(1..5)), sport_id: 4)}
