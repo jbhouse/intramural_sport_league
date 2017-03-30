@@ -10,7 +10,7 @@ class PlayersController < ApplicationController
   def create
     @player = Player.new(create_player_params)
     if @player.save
-      redirect_to user_path(@playear)
+      redirect_to user_path(@player)
     else
       @errors = @player.errors.full_messages
       render :new
@@ -18,17 +18,18 @@ class PlayersController < ApplicationController
   end
 
   def show
-
   end
 
   def edit
-
   end
 
   def update
     if @players.update_attributes(update_player_params)
-
-    redirect_to root_url
+      redirect_to root_url
+    else
+      @errors = @players.errors.full_messages
+      render :edit
+    end
   end
 
   private

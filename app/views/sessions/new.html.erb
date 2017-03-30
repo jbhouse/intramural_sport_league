@@ -1,7 +1,5 @@
 <h1> login </h1>
-<%= form_for @session, url: {action: "create"} do |f| %>
-  First Name: <%= f.text_field :first_name%>
-  Last Name: <%= f.text_field :last_name%>
+<%= form_for :session, url: {action: "create"} do |f| %>
   Email: <%= f.text_field :email%>
   Password: <%= f.password_field :password %>
 <% end %>
