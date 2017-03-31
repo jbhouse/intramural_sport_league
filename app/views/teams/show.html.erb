@@ -6,3 +6,8 @@
   <%= link_to "#{roster_entry.player.first_name} #{roster_entry.player.last_name}", player_path(roster_entry.player)%>
   <br>
 <%end%>
+
+<h3><%if logged_in?%>
+  <%= link_to "Join Team", roster_entries_path%>
+  <%end%>
+</h3>
