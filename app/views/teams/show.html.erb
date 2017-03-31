@@ -8,6 +8,11 @@
 <%end%>
 
 <h3><%if logged_in?%>
-  <%= link_to "Join Team", roster_entries_path%>
+    <%= form_tag(controller: "roster_entries", action: "create", method: "post", class: "join-team") do %>
+    <%= check_box_tag(:sub?) %>
+    <%= label_tag(:sub?, "I am a substitute") %>
+    <%= hidden_field_tag(:team_id, @team.id) %>
+    <%= submit_tag("Join Team") %>
+    <% end %>
   <%end%>
 </h3>
