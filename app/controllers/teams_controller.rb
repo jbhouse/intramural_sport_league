@@ -24,8 +24,9 @@ class TeamsController < ApplicationController
 
   def show
     @team = Team.find(params[:id])
+    @captain = Player.find(@team.captain_id)
     @roster = @team.roster_entries
-    p @roster
+
   end
 
   def edit

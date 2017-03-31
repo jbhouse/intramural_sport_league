@@ -1,4 +1,7 @@
-<h2>Roster for <%=@team.name%></h2>
+<h2>Roster for Team: <%=@team.name%></h2>
+<h3>Captain: <%=@captain.first_name + " "%><%= @captain.last_name%></h3>
+<img src=<%=@team.mascot_url%>>
+<br>
 <% @roster.each do |roster_entry| %>
   <%= link_to "#{roster_entry.player.first_name} #{roster_entry.player.last_name}", player_path(roster_entry.player)%>
   <br>
