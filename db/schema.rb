@@ -17,13 +17,12 @@ ActiveRecord::Schema.define(version: 20170331000659) do
 
   create_table "games", force: :cascade do |t|
     t.string   "location"
-    t.date     "date"
-    t.time     "time"
+    t.string   "date"
+    t.string   "time"
     t.integer  "away_team_id"
     t.integer  "home_team_id"
-    t.integer  "winning_team_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "players", force: :cascade do |t|
