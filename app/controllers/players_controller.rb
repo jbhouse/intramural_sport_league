@@ -10,15 +10,15 @@ class PlayersController < ApplicationController
   def create
     @player = Player.new(create_player_params)
     if @player.save
-      redirect_to user_path(@playear)
+      redirect_to 'sessions#create', email: params[:players][:email], password: params[:players][:password]
     else
       @errors = @player.errors.full_messages
+      puts @errors
       render :new
     end
   end
 
   def show
-    find_player
   end
 
   def edit
@@ -26,8 +26,10 @@ class PlayersController < ApplicationController
 
   def update
     if @players.update_attributes(update_player_params)
-
-    redirect_to root_url
+      redirect_to root_url
+    else
+      @errors = @players.errors.full_messages
+      render :edit
     end
   end
 
@@ -37,9 +39,9 @@ class PlayersController < ApplicationController
     end
 
     def create_player_params
-      params.require(:player).permit(:first_name, :last_name, :email, :password)
+      params.require(:players).permit(:first_name, :last_name, :email, :password, :password_confirmation)
     end
     def update_player_params
-      params.require(:player).permit(:first_name, :last_name)
+      params.require(:players).permit(:first_name, :last_name)
     end
 end
