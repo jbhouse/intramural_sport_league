@@ -1,0 +1,9 @@
+<h1>Edit Game Info</h1>
+<%= form_for :games, url: {action: "update"} do |f| %>
+  Home Team: <%= f.text_field :home_team_name :value => @game.away_team.name %>
+  Away Team: <%= f.text_field :away_team_name :value => @game.away_team.name%>
+  Location: <%= f.text_field :location :value => @game.location}%>
+  Date: <%= f.text_field :date :value => @game.date%>
+  Time: <%= f.text_field :time :value => @game.time%>
+  <%= f.submit "update"%>
+<% end %>

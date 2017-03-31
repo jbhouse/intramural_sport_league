@@ -5,9 +5,9 @@ class Player < ApplicationRecord
 
   has_secure_password
 
-  def captian?
+  def captain?
     Team.all.each do |team|
-      return true if self == team.captian
+      return true if self == team.captain
     end
     false
   end

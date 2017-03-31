@@ -3,7 +3,9 @@ Rails.application.routes.draw do
     resources :teams, except: [:destroy], shallow: true
   end
   resources :roster_entries, only: [:create, :new, :destroy]
-  resources :games, except: [:destroy, :index]
+  resources :games, except: [:destroy, :index] do
+    resources :winning_teams, only: [:create, :new]
+  end
   resources :players, except: [:destroy] do
     resources :rsvps, only: [:create, :new, :destroy],shallow: true
   end
