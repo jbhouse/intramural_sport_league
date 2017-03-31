@@ -4,8 +4,6 @@ class RosterEntriesController < ApplicationController
   end
 
   def new
-    p "***************"
-    p params
     @roster_entry = RosterEntry.new
   end
 
@@ -30,7 +28,6 @@ class RosterEntriesController < ApplicationController
     @roster = RosterEntry.where(team_id: params[:team_id])
 
     @roster.each do |player|
-      p player
       if player.player_id == current_user.id
         return true
       end
