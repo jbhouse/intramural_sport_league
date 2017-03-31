@@ -1,34 +1,60 @@
 module ApplicationHelper
-  # def user_games
-  #   player_games = []
-  #   players = []
-  #   @games = Game.all
-  #   @games.each do |game|
-  #     players << game.players
-  #
-  #
-  #   @player_games = Game.players.find("#{@player.id}")
-  # end
-
-  def user_teams
-    @teams = Team.all
-    @player_teams = @teams.players.where(player_id: "#{@player.id}")
-    @player_teams
+  def user_games
+    games_array = []
+    @user_rsvps = Rsvp.where(player_id: "#{@player.id}")
+    @user_rsvps.each do |rsvp|
+      games_array << rsvp.game
+    end
+    games_array
   end
 
-  def on_winning_team
-    @winning_teams = WinningTeam.all
-    @winning_teams.team.players.include?()
+  def user_teams
+    teams_array = []
+    @user_entry = RosterEntry.where(player_id: "#{@player.id}")
+    @user_entry.each do |entry|
+      teams_array << entry.team
+    end
+    teams_array
   end
 
   def games_won
-    # @games_won = user_games.where(winning_team_id: '')
-    # where the winning_team_id == the id of the team the player was on (for that game)
-  end
+# we have all of the games for the user
+# we also have all of their teams
+# each winning team has a game_id and a team_id
+  # user_games.each do |game|
+  #   gameid = game.id
+  #   @winning_teams.each do |team|
+  #     if team.game_id == gameid
+  #       game_winning_teams << team
+  #     end
+  #   end
+  # end
+  game_winning_teams = []
+  users_game_winning_teams = []
+  @winning_teams = WinningTeam.all
 
-  def games_lost
-
+    user_teams.each do |team|
+      teamid = team.id
+      @winning_teams.each do |this_team|
+        if this_team.team_id == teamid
+          users_game_winning_teams << this_team
+        end
+      end
+    end
+    user_games.each do |game|
+      gameid = game.idea
+      users_game_winning_teams.each do |a_team|
+        if a_team.id == gameid
+          game_winning_teams << a_team
+        end
+      end
+    end
+    game_winning_teams
   end
+  # we need to tell our client about the new league
+  # rule. you can't be a sub on a team that is playing against
+  # your team
+
 
   def win_percentage
     # (games_won/games_lost)

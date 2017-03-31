@@ -1,17 +1,17 @@
 <h1 class="profile-header"> Welcome to <%=@player.first_name%>'s profile </h1>
-<ul>
+<ul> Games
   <% user_games.each do |game| %>
   <li>
-    <%= game.location %>
-    <%= game.date %>
+    location: <%= game.location %><br>
+    date: <%= game.date %><br>
   </li>
   <% end %>
 </ul>
 
-<ul>
+<ul> Teams
   <% user_teams.each do |team| %>
   <li>
-    <%= team.name %>
+    name: <%= team.name %>
   </li>
   <% end %>
 </ul>
