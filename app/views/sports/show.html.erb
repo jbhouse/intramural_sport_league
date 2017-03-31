@@ -38,7 +38,14 @@
     <br>
     time: <%= game.date%>, <%= game.time %>
     <br>
-   Winner:<%= game.winning_team.team.name %>
+    <%if game.winning_team%>
+      Winner:<%= game.winner.name %>
+    <%end%>
     </p>
+    <%if current_user%>
+      <% if current_user.captain? && !game.winning_team%>
+        <%= link_to("Choose Winner", new_game_winning_team_path(game)) %>
+      <% end %>
+    <% end %>
   <%end%>
 </div>
