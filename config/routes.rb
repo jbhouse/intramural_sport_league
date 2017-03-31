@@ -1,3 +1,17 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :sports do
+    resources :teams, except: [:destroy], shallow: true
+  end
+  resources :roster_entries, only: [:create, :new, :destroy]
+  resources :games, except: [:destroy, :index] do
+    resources :winning_teams, only: [:create, :new]
+  end
+  resources :players, except: [:destroy] do
+    resources :rsvps, only: [:create, :new, :destroy],shallow: true
+  end
+  resources :sessions, only: [:create, :new, :destroy]
+
+
+  root to: 'sports#index'
+
 end

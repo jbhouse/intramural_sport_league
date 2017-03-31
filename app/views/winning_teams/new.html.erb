@@ -1,0 +1,5 @@
+<h1>Pick Winner</h1>
+<%= form_for :winning_team, url: {action: "create"} do |f| %>
+  Team Name: <%= f.text_field :name%>
+    <%= f.submit "update game"%>
+<% end %>
