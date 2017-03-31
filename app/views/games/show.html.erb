@@ -1,0 +1,14 @@
+<h1><%= @game.home_team.name%> (home) vs <%= @game.away_team.name%> (away)</h1>
+<h3>Game Info: </h3>
+<ul>
+  <li>Location: <%= @game.location %></li>
+  <li>Date: <%= @game.date %></li>
+  <li>Time: <%= @game.time %></li>
+</ul>
+
+<h3>Winner: </h3>
+<% if @game.winner %>
+  <p><%= @game.winner.name %></p>
+<% else %>
+  <p>TBD</p>
+<% end %>

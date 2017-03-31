@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
+  before_action :find_game, only: [:show, :edit, :update]
   def edit
-    @game = Game.find(params[:id])
     if @game.completed? && current_user.captain?
       render :edit_result
     else
@@ -9,8 +9,6 @@ class GamesController < ApplicationController
   end
 
   def update
-    @game = Game.find(params[:id])
-    puts game_params
     if @game.save
       redirect root_url
     else
@@ -25,5 +23,9 @@ class GamesController < ApplicationController
   private
     def game_params
       params.require(:game).permit(:home_team_name, :away_team_name, :location, :date, :time)
+    end
+
+    def find_game
+      @game = Game.find(params[:id])
     end
 end
