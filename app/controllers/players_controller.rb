@@ -18,7 +18,7 @@ class PlayersController < ApplicationController
   end
 
   def show
-
+    find_player
   end
 
   def edit
@@ -28,11 +28,12 @@ class PlayersController < ApplicationController
     if @players.update_attributes(update_player_params)
 
     redirect_to root_url
+    end
   end
 
   private
     def find_player
-      @player.find(params[:player_id])
+      @player = Player.find(params[:id])
     end
 
     def create_player_params

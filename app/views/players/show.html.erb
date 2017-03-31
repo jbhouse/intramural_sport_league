@@ -2,18 +2,16 @@
 <ul>
   <% user_games.each do |game| %>
   <li>
-    <%= game.something? %>
-    <%= game.another_thing? %>
+    <%= game.location %>
+    <%= game.date %>
   </li>
   <% end %>
 </ul>
 
 <ul>
-  <%  %>
+  <% user_teams.each do |team| %>
   <li>
-    <%=  %>
+    <%= team.name %>
   </li>
-  <%  %>
+  <% end %>
 </ul>
-<!-- we want win/loss record
-all teams they have played for -->
