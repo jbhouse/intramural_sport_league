@@ -1,4 +1,9 @@
 <h2><%=@sport.name%> Page</h2>
+<h3><%if logged_in?%>
+  <%= link_to "Create Team", new_sport_team_path(@sport)%>
+  <%end%>
+</h3>
+
 
 <div class="Teams">
 <h4> <%= @sport.name%> teams </h4>
