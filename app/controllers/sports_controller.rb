@@ -17,6 +17,8 @@ class SportsController < ApplicationController
         end
       end
     end
+    @unplayed_game.sort_by! { |game| game.date }
+    @played_game.sort_by! { |game| game.date }
   end
 
 end
