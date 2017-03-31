@@ -1,6 +1,9 @@
 <h1> login </h1>
+<%if flash[:just_reg]%>
+  <%= flash[:just_reg]%> <br><br>
+<%end%>
 <%= form_for :session, url: {action: "create"} do |f| %>
   Email: <%= f.text_field :email%>
-  Password: <%= f.text_field :password %>
+  Password: <%= f.password_field :password %>
     <%= f.submit "login"%>
 <% end %>

@@ -11,8 +11,9 @@ class PlayersController < ApplicationController
     @player = Player.new(create_player_params)
     if @player.save
       flash[:success] = "You have registered!"
-      redirect_to sports_path
-      # redirect_to 'sessions#create', email: params[:players][:email], password: params[:players][:password]
+      # redirect_to sports_path
+      flash[:just_reg] = "Thank you for registering! Please login to continue."
+      redirect_to new_session_path
     else
       @errors = @player.errors.full_messages
       puts @errors
