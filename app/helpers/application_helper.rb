@@ -11,11 +11,14 @@ module ApplicationHelper
   # end
 
   def user_teams
-    @player_teams = Team.roster_entries.where(player_id: "#{@player.id}")
+    @teams = Team.all
+    @player_teams = @teams.players.where(player_id: "#{@player.id}")
+    @player_teams
   end
 
   def on_winning_team
-
+    @winning_teams = WinningTeam.all
+    @winning_teams.team.players.include?()
   end
 
   def games_won
