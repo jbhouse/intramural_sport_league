@@ -6,7 +6,7 @@
  <p> <%=link_to team.name, team_path(team) %> </p>
  <% end %>
  </div>
-
+<div class ="upcoming-games">
 <h4>
   Upcoming <%=@sport.name%> games
 </h4>
@@ -20,4 +20,20 @@
     <br>
     </p>
   <%end%>
-
+</div>
+<div class="completed-games">
+<h4>
+  Completed <%=@sport.name%> games
+</h4>
+  <% @played_game.each do |game|%>
+    <p>
+    <%= game.home_team.name %> vs <%= game.away_team.name%>
+    <br>
+    location: <%= game.location %>
+    <br>
+    time: <%= game.date%>, <%= game.time %>
+    <br>
+    <%= game.winning_team %>
+    </p>
+  <%end%>
+</div>
