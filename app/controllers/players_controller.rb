@@ -8,7 +8,7 @@ class PlayersController < ApplicationController
   end
 
   def create
-    @player = Player.new(create_player_params, password_confirmation: params[:players][:password])
+    @player = Player.new(create_player_params)
     if @player.save
       redirect_to 'sessions#create', email: params[:players][:email], password: params[:players][:password]
     else
