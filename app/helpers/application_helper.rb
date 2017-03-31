@@ -42,7 +42,7 @@ module ApplicationHelper
       end
     end
     user_games.each do |game|
-      gameid = game.idea
+      gameid = game.id
       users_game_winning_teams.each do |a_team|
         if a_team.id == gameid
           game_winning_teams << a_team
