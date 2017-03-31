@@ -10,7 +10,7 @@ class SportsController < ApplicationController
     @played_game = []
     @teams.each do |team|
       team.games.each do |game|
-        if game.winning_team_id == nil
+        if game.winning_team == nil
           @unplayed_game << game
         else
           @played_game << game
