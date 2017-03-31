@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+    flash.now[:just_reg]
   end
 
   def create
