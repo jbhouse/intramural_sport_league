@@ -49,12 +49,12 @@ RosterEntry.create(sub?: true, player_id: 4, team_id: 1)
   )
 }
 
+
 5.times {Game.create(
   location: Faker::StarWars.planet,
   date: Faker::Date.forward(10),
   time: "6:30 PM",
   away_team_id: 2,
-  home_team_id: 3,
-  winning_team: 3
+  home_team_id: 3
   )
 }
