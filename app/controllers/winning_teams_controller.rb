@@ -5,7 +5,6 @@ class WinningTeamsController < ApplicationController
   end
 
   def create
-    puts params
     @game = Game.find(params[:game_id])
     @team = Team.find_by(winning_team_params)
     @winning_team = WinningTeam.new(team_id: @team.id, game_id: @game.id)
