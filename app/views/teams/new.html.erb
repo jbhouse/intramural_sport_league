@@ -1,0 +1,6 @@
+<h1>Create new Team for <%=@sport.name%></h1>
+<%= form_for :team, url: {action: "create"} do |f| %>
+  Team Name: <%= f.text_field :name%>
+  Mascot URL: <%= f.text_field :mascot_url%>
+    <%= f.submit "Register Team"%>
+<% end %>

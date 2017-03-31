@@ -10,7 +10,9 @@ class PlayersController < ApplicationController
   def create
     @player = Player.new(create_player_params)
     if @player.save
-      redirect_to 'sessions#create', email: params[:players][:email], password: params[:players][:password]
+      flash[:success] = "You have registered!"
+      redirect_to sports_path
+      # redirect_to 'sessions#create', email: params[:players][:email], password: params[:players][:password]
     else
       @errors = @player.errors.full_messages
       puts @errors
