@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
   resources :sessions, only: [:create, :new, :destroy]
 
+
   root to: 'sports#index'
 
 end
