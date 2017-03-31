@@ -21,10 +21,8 @@ ActiveRecord::Schema.define(version: 20170331000659) do
     t.string   "time"
     t.integer  "away_team_id"
     t.integer  "home_team_id"
-    t.integer  "winning_team_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.index ["winning_team_id"], name: "index_games_on_winning_team_id", using: :btree
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "players", force: :cascade do |t|
