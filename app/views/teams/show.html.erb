@@ -3,8 +3,12 @@
 <img src=<%=@team.mascot_url%>>
 <br>
 <% @roster.each do |roster_entry| %>
+
   <%= link_to "#{roster_entry.player.first_name} #{roster_entry.player.last_name}", player_path(roster_entry.player)%>
-  <br>
+  <%if roster_entry.sub? %>
+    <%= "- Substitute" %>
+    <% end %>
+    <br>
 <%end%>
 
 <h3><%if logged_in?%>
