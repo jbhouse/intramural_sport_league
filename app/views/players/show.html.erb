@@ -8,10 +8,10 @@
   <% end %>
 </ul>
 
-<ul> Teams
+<ul>
   <% user_teams.each do |team| %>
   <li>
-    name: <%= team.name %>
+    name: <%=link_to team.name, team_path(team)%>
   </li>
   <% end %>
 </ul>
