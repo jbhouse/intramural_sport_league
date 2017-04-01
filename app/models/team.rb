@@ -7,4 +7,13 @@ class Team < ApplicationRecord
   has_many :victories, as: :winning_teams
   belongs_to :captain, class_name: "Player"
   belongs_to :sport
+
+  def find_opponent(game)
+    if game.home_team == self
+      return game.away_team
+    else
+      game.home_team
+    end
+  end
+
 end

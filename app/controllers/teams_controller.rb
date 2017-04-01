@@ -24,9 +24,11 @@ class TeamsController < ApplicationController
 
   def show
     @team = Team.find(params[:id])
-    @captain = Player.find(@team.captain_id)
-    @roster = @team.roster_entries
-
+    @games = @team.games
+    @these_games = @games.sort_by { |game| game.date }
+    @these_games.each do |game|
+      return @nextgame = game if !game.completed?
+    end
   end
 
   def edit

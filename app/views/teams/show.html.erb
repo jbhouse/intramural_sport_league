@@ -1,8 +1,8 @@
 <h2>Roster for Team: <%=@team.name%></h2>
-<h3>Captain: <%=@captain.first_name + " "%><%= @captain.last_name%></h3>
+<h3>Captain: <%=@team.captain.first_name + " "%><%= @team.captain.last_name%></h3>
 <img src=<%=@team.mascot_url%>>
 <br>
-<% @roster.each do |roster_entry| %>
+<% @team.roster_entries.each do |roster_entry| %>
 
   <%= link_to "#{roster_entry.player.first_name} #{roster_entry.player.last_name}", player_path(roster_entry.player)%>
   <%if roster_entry.sub? %>
@@ -22,3 +22,4 @@
 </h3>
 <p id="games-won-by-team">Games won: <%= @team.wins %></p>
 <p id="team-games">Games played: <%=team_games.length%></p>
+<p>Next Opponent: <%= @team.find_opponent(@nextgame).name %></p>
