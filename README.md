@@ -1,24 +1,5 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+An application to allow for the creation and management of an intramural sports league.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Developed as part of the Devbootcamp project-based curriculum. A two day 4-person project, and the first time doing any group project using Ruby on Rails. Meant primarily to reinforce difficult to envision activerecord associations and general Ruby on Rails web app building.
